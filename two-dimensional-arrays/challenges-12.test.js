@@ -117,7 +117,7 @@ The top row of the board is considered row zero and row numbers increase as they
 
 const battleship = (board, row, col) => {
   //  Solution code here...
-  return board[row][col] ? 'hit' : 'miss' || board[col][row] ? 'hit' : 'miss';
+  return board[row][col] === '#' ? 'hit' : 'miss';
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -131,22 +131,13 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 
 const calculateProduct = (numbers) => {
   // Solution code here...
-  finalProduct = [];
-
-  numbers.forEach(value => {
-    accumlator * value.reduce((total, value) => {
-      numbers.forEach((total, value) => {
-
-      })
-      products.reduce(total, value => {
-        return total * value;
-      })
-    })
-    return value;
-  })
-
-
-  return numbers;
+  let product = 1;
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = 0; j < numbers[i].length; j++) {
+      product = product * numbers[i][j];
+    }
+  }
+  return product;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -167,6 +158,15 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
+  let total = 0;
+  let count = weather.reduce((acc, arr) => {
+    arr.forEach(value => {
+      total += value;
+    })
+    acc += arr.length;
+    return acc;
+  }, 0);
+  return total / count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -188,6 +188,18 @@ let lowestWeeklyTemperatureData = [
 
 const lowestWeeklyAverage = (weather) => {
   // Solution code here...
+  let answer = 500;
+  weather.forEach(week => {
+    let sum = 0;
+    week.forEach(day => {
+      sum += day;
+    })
+    let avg = sum / week.length;
+    if (avg < answer) {
+      answer = avg;
+    }
+  });
+  return answer;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -204,6 +216,18 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 
 const excel = (str) => {
   // Solution code here...
+  let answer = [];
+  let sum = 0;
+  str.split('').forEach((value) => {
+    if (parseInt(value)) {
+      sum += parseInt(value);
+    } else if (value === '\n') {
+      answer.push(sum);
+      sum = 0;
+    }
+  })
+  answer.push(sum)
+  return answer;
 };
 
 /* ------------------------------------------------------------------------------------------------
