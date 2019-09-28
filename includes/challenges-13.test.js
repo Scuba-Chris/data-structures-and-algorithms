@@ -61,17 +61,8 @@ Write a function named onlyOddChars that takes in a string and returns only the 
 For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
-// const onlyOddChars = (str) => {
-//     // Solution code here...
-//     const odds = '';
-//     const arr = str.split('');
-//     const odds = arr.filter((value, index) => {
-//         if (index % 2 !== 0) {
-//             return newArray.push(value);
-//         }
-//     })
-//     return newArray;
-// };
+const onlyOddChars = (str) => str.split('').filter((val, index) => index % 2).join('');
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -79,13 +70,8 @@ CHALLENGE 5
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
 
-const allHappy = (arr) => {
-  // Solution code here...
-  arr.map(value => {
-    value.includes(':)');
-  });
-  return arr;
-}
+const allHappy = (arr) => arr.every(input => input.includes(':)'));
+// Solution code here...
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -94,13 +80,9 @@ Write a function named findAnything that takes in an array of strings, along wit
 strings from the original array that contain the target string.
 ------------------------------------------------------------------------------------------------ */
 
-const findAnything = (arr, target) => {
-  // Solution code here...
-  arr.filter(value => {
-    value.includes(target);
-  })
-  return arr;
-}
+const findAnything = (arr, target) => arr.filter(input => input.includes(target));
+// Solution code here...
+
 
 /* ------------------------------------------------------------------------------------------------
             CHALLENGE 7
@@ -109,13 +91,9 @@ const findAnything = (arr, target) => {
             in the array contains the target string.
             ------------------------------------------------------------------------------------------------ */
 
-const findEvery = (arr, target) => {
-  // Solution code here...
-  arr.map(val => {
-    val.includes(target);
-  })
-  return arr;
-};
+const findEvery = (arr, target) => arr.every(val => val.includes(target));
+// Solution code here...
+
 
 /* ------------------------------------------------------------------------------------------------
     CHALLENGE 8
@@ -131,15 +109,9 @@ const findEvery = (arr, target) => {
     For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again', 'still Brook']] returns [['Actual Person'], ['Human Person']]
     ------------------------------------------------------------------------------------------------ */
 
-const unenrollBrook = (arr) => {
-  // Solution code here...
-  arr.map(newArray => {
-    newArray.filter(str => {
-      !str.includes('Brook')
-    })
-  })
-  return arr;
-};
+const unenrollBrook = (arr) => arr.map(arrayOne => arrayOne.filter(string => !string.includes('Brook')));
+// Solution code here...
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
